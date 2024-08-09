@@ -11,11 +11,11 @@
             padding: 0;
             box-sizing: border-box;
             scroll-behavior: smooth;
-            background: linear-gradient(135deg, #6a1b9a, #ab47bc);
+            background: linear-gradient(135deg, #4a148c, #000000);
             color: #fff;
         }
         header {
-            background-color: #4a148c;
+            background-color: #6a1b9a;
             color: #fff;
             padding: 15px 0;
             position: fixed;
@@ -36,10 +36,11 @@
             font-size: 16px;
         }
         nav a:hover {
-            background-color: #7b1fa2;
+            background-color: #ab47bc;
             color: #f1f1f1;
         }
         .toggle-container {
+            display: none;
             text-align: center;
             margin: 100px auto 20px auto;
             position: relative;
@@ -91,8 +92,8 @@
             display: block;
         }
         .home {
-            background-color: #e1bee7;
-            color: #333;
+            background-color: #7b1fa2;
+            color: #fff;
         }
         .demo {
             background-color: #ffffff;
@@ -129,9 +130,9 @@
             font-weight: bold;
         }
         .about-us {
-            background-color: #f3e5f5;
+            background-color: #7b1fa2;
             padding: 40px 20px;
-            color: #333;
+            color: #fff;
         }
         .about-us .photo {
             width: 45%;
@@ -147,7 +148,7 @@
         }
         .about-us .photo p {
             font-size: 16px;
-            color: #555;
+            color: #ddd;
             margin-top: 10px;
         }
     </style>
@@ -176,6 +177,14 @@
     </section>
 
     <section id="demo" class="section demo">
+        <div class="toggle-container" id="toggle-container">
+            <label for="toggle-left">I am</label>
+            <input type="radio" id="toggle-left" name="toggle" checked>
+            <input type="radio" id="toggle-right" name="toggle">
+            <div class="toggle-switch"></div>
+            <label for="toggle-left">Hritik Roshan</label>
+            <label for="toggle-right">Katrina Kaif</label>
+        </div>
         <div class="grid" id="product-grid">
             <!-- Product items will be inserted here -->
         </div>
@@ -210,6 +219,7 @@
         const aboutUsSection = document.getElementById('about-us');
         const toggleLeft = document.getElementById('toggle-left');
         const toggleRight = document.getElementById('toggle-right');
+        const toggleContainer = document.getElementById('toggle-container');
 
         function renderProducts(products) {
             productGrid.innerHTML = '';
@@ -235,20 +245,21 @@
         document.getElementById('nav-home').addEventListener('click', (e) => {
             e.preventDefault();
             showSection(homeSection);
-            demoSection.classList.remove('active');
+            toggleContainer.style.display = 'none';
             renderProducts([]);
         });
 
         document.getElementById('nav-demo').addEventListener('click', (e) => {
             e.preventDefault();
             showSection(demoSection);
+            toggleContainer.style.display = 'block';
             renderProducts(toggleLeft.checked ? productsHritik : productsKatrina);
         });
 
         document.getElementById('nav-about-us').addEventListener('click', (e) => {
             e.preventDefault();
             showSection(aboutUsSection);
-            demoSection.classList.remove('active');
+            toggleContainer.style.display = 'none';
             renderProducts([]);
         });
 

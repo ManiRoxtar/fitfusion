@@ -3,280 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Try-On</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-            background: linear-gradient(135deg, #4a148c, #000000);
-            color: #fff;
-        }
-        header {
-            background-color: #6a1b9a;
-            color: #fff;
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 15px 25px;
-            display: inline-block;
-            transition: background-color 0.3s, color 0.3s;
-            font-size: 16px;
-        }
-        nav a:hover {
-            background-color: #ab47bc;
-            color: #f1f1f1;
-        }
-        .toggle-container {
-            display: none;
-            text-align: center;
-            margin: 100px auto 20px auto;
-            position: relative;
-            color: #fff;
-        }
-        .toggle-container label {
-            font-size: 20px;
-            margin: 0 20px;
-            font-weight: bold;
-        }
-        .toggle-container input[type="radio"] {
-            display: none;
-        }
-        .toggle-container .toggle-switch {
-            display: inline-block;
-            width: 120px;
-            height: 40px;
-            background-color: #d1c4e9;
-            border-radius: 20px;
-            position: relative;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .toggle-container .toggle-switch::before {
-            content: '';
-            width: 40px;
-            height: 40px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: transform 0.3s;
-        }
-        .toggle-container input[type="radio"]:checked + .toggle-switch {
-            background-color: #ab47bc;
-        }
-        .toggle-container input[type="radio"]:checked + .toggle-switch::before {
-            transform: translateX(80px);
-        }
-        .section {
-            padding: 80px 20px 40px;
-            text-align: center;
-        }
-        .home, .demo, .about-us {
-            display: none;
-        }
-        .home.active, .demo.active, .about-us.active {
-            display: block;
-        }
-        .home {
-            background-color: #7b1fa2;
-            color: #fff;
-        }
-        .demo {
-            background-color: #ffffff;
-            color: #333;
-        }
-        .demo .grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            padding: 20px;
-        }
-        .demo .grid .product {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 10px;
-            text-align: center;
-            width: 200px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-            background-color: #f3e5f5;
-        }
-        .demo .grid .product:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-        .demo .grid .product img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-        .demo .grid .product .price {
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        .about-us {
-            background-color: #7b1fa2;
-            padding: 40px 20px;
-            color: #fff;
-        }
-        .about-us .photo {
-            width: 45%;
-            display: inline-block;
-            vertical-align: top;
-            margin: 0 2.5%;
-            text-align: center;
-        }
-        .about-us .photo img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .about-us .photo p {
-            font-size: 16px;
-            color: #ddd;
-            margin-top: 10px;
-        }
-    </style>
+    <title>FitFusion</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#" id="nav-home">Home</a>
-            <a href="#" id="nav-demo">Demo</a>
-            <a href="#" id="nav-about-us">About Us</a>
-        </nav>
-    </header>
+    <nav>
+        <ul>
+            <li><a href="#" class="tab" data-tab="home">Home</a></li>
+            <li><a href="#" class="tab" data-tab="personalization">Personalization</a></li>
+            <li><a href="#" class="tab" data-tab="fitting">Fitting</a></li>
+            <li><a href="#" class="tab" data-tab="cataloging">Cataloging</a></li>
+            <li><a href="#" class="tab" data-tab="about">About Us</a></li>
+        </ul>
+    </nav>
+    <div id="content">
+        <!-- Home Tab -->
+        <section id="home" class="tab-content">
+            <h1 class="fade-in">Welcome to FitFusion</h1>
+            <p class="fade-in delay-1">FitFusion provides e-commerce businesses with cutting-edge virtual try-on capabilities that allow customers to visualize how products will look on them. This creates engaging and personalized shopping experiences that customers love.</p>
+        </section>
 
-    <div class="toggle-container" id="toggle-container">
-        <label for="toggle-left">I am</label>
-        <input type="radio" id="toggle-left" name="toggle" checked>
-        <input type="radio" id="toggle-right" name="toggle">
-        <div class="toggle-switch"></div>
-        <label for="toggle-left">Hritik Roshan</label>
-        <label for="toggle-right">Katrina Kaif</label>
+        <!-- Personalization Tab -->
+        <section id="personalization" class="tab-content">
+            <h2 class="fade-in">Offer your customers the personalization they deserve, with pictures that they love. Here's a sneak peek at what your customers will see.</h2>
+            <div class="toggle-container fade-in delay-1">
+                <span>I am</span>
+                <span id="toggle-label-left">Zayn Malik</span>
+                <label class="switch">
+                    <input type="checkbox" id="toggle-personalization">
+                    <span class="slider round"></span>
+                </label>
+                <span id="toggle-label-right">Ananya Pandey</span>
+            </div>
+            <div id="card-container" class="card-grid fade-in delay-2">
+                <!-- Card Widgets will be dynamically generated here -->
+            </div>
+        </section>
+
+        <!-- Fitting Tab -->
+        <section id="fitting" class="tab-content">
+            <h2 class="fade-in">Visualize your body on the clothes</h2>
+            <div class="fitting-container fade-in delay-1">
+                <div class="size-options">
+                    <button class="size-btn" data-size="S">S</button>
+                    <button class="size-btn" data-size="M">M</button>
+                    <button class="size-btn" data-size="L">L</button>
+                    <button class="size-btn" data-size="XL">XL</button>
+                    <button class="size-btn" data-size="XXL">XXL</button>
+                </div>
+                <div class="image-display">
+                    <img id="fitting-image" src="images/size-default.jpg" alt="Clothing Image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Cataloging Tab -->
+        <section id="cataloging" class="tab-content">
+            <h2 class="fade-in">Generate product catalog pictures in various poses for people of various shapes with our state-of-the-art AI models.</h2>
+            <div class="cataloging-container fade-in delay-1">
+                <div class="input-section">
+                    <h3>Input</h3>
+                    <img src="images/input.jpg" alt="Input Image">
+                </div>
+                <div class="output-section">
+                    <h3>Output</h3>
+                    <div class="output-grid fade-in delay-2">
+                        <!-- Catalog output images will go here -->
+                        <img src="images/output1.jpg" alt="Output Image 1">
+                        <img src="images/output2.jpg" alt="Output Image 2">
+                        <img src="images/output3.jpg" alt="Output Image 3">
+                        <img src="images/output4.jpg" alt="Output Image 4">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Tab -->
+        <section id="about" class="tab-content">
+            <h2 class="fade-in">About Us</h2>
+            <p class="fade-in delay-1">We are a team of techpreneurs powering the try-on industry with AI.</p>
+            <div class="about-images fade-in delay-2">
+                <img src="images/about1.jpg" alt="Team Image 1">
+                <img src="images/about2.jpg" alt="Team Image 2">
+            </div>
+        </section>
     </div>
-
-    <section id="home" class="section home">
-        <h2>Welcome to Virtual Try-On</h2>
-        <p>Experience the future of fashion with our Virtual Try-On technology. Personalize your style with ease and convenience, and see how clothes look on you before you buy. Enjoy a seamless shopping experience with cutting-edge virtual fitting tools that cater to your preferences.</p>
-    </section>
-
-    <section id="demo" class="section demo">
-        <div class="toggle-container" id="toggle-container">
-            <label for="toggle-left">I am</label>
-            <input type="radio" id="toggle-left" name="toggle" checked>
-            <input type="radio" id="toggle-right" name="toggle">
-            <div class="toggle-switch"></div>
-            <label for="toggle-left">Hritik Roshan</label>
-            <label for="toggle-right">Katrina Kaif</label>
-        </div>
-        <div class="grid" id="product-grid">
-            <!-- Product items will be inserted here -->
-        </div>
-    </section>
-
-    <section id="about-us" class="section about-us">
-        <div class="photo">
-            <img src="photo1.jpg" alt="Company Team">
-            <p>Our dedicated team working on innovative solutions to enhance your shopping experience.</p>
-        </div>
-        <div class="photo">
-            <img src="photo2.jpg" alt="Our Technology">
-            <p>State-of-the-art technology driving the future of virtual try-ons and personalization.</p>
-        </div>
-    </section>
-
-    <script>
-        const productsHritik = [
-            { img: 'product1-hritik.jpg', link: '#', price: '$10' },
-            { img: 'product2-hritik.jpg', link: '#', price: '$20' },
-            { img: 'product3-hritik.jpg', link: '#', price: '$30' }
-        ];
-        const productsKatrina = [
-            { img: 'product1-katrina.jpg', link: '#', price: '$15' },
-            { img: 'product2-katrina.jpg', link: '#', price: '$25' },
-            { img: 'product3-katrina.jpg', link: '#', price: '$35' }
-        ];
-
-        const productGrid = document.getElementById('product-grid');
-        const homeSection = document.getElementById('home');
-        const demoSection = document.getElementById('demo');
-        const aboutUsSection = document.getElementById('about-us');
-        const toggleLeft = document.getElementById('toggle-left');
-        const toggleRight = document.getElementById('toggle-right');
-        const toggleContainer = document.getElementById('toggle-container');
-
-        function renderProducts(products) {
-            productGrid.innerHTML = '';
-            products.forEach(product => {
-                const productDiv = document.createElement('div');
-                productDiv.className = 'product';
-                productDiv.innerHTML = 
-                    <img src="${product.img}" alt="Product Image">
-                    <a href="${product.link}">Product Link</a>
-                    <div class="price">${product.price}</div>
-                ;
-                productGrid.appendChild(productDiv);
-            });
-        }
-
-        function showSection(section) {
-            homeSection.classList.remove('active');
-            demoSection.classList.remove('active');
-            aboutUsSection.classList.remove('active');
-            section.classList.add('active');
-        }
-
-        document.getElementById('nav-home').addEventListener('click', (e) => {
-            e.preventDefault();
-            showSection(homeSection);
-            toggleContainer.style.display = 'none';
-            renderProducts([]);
-        });
-
-        document.getElementById('nav-demo').addEventListener('click', (e) => {
-            e.preventDefault();
-            showSection(demoSection);
-            toggleContainer.style.display = 'block';
-            renderProducts(toggleLeft.checked ? productsHritik : productsKatrina);
-        });
-
-        document.getElementById('nav-about-us').addEventListener('click', (e) => {
-            e.preventDefault();
-            showSection(aboutUsSection);
-            toggleContainer.style.display = 'none';
-            renderProducts([]);
-        });
-
-        toggleLeft.addEventListener('change', () => {
-            if (demoSection.classList.contains('active')) {
-                renderProducts(productsHritik);
-            }
-        });
-
-        toggleRight.addEventListener('change', () => {
-            if (demoSection.classList.contains('active')) {
-                renderProducts(productsKatrina);
-            }
-        });
-
-        // Initialize with Home section
-        showSection(homeSection);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

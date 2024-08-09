@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Try-On</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+        .toggle-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .toggle-container label {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        .toggle-container input[type="radio"] {
+            display: none;
+        }
+        .toggle-container .toggle-switch {
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            background-color: #ccc;
+            border-radius: 15px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .toggle-container .toggle-switch::before {
+            content: '';
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.3s;
+        }
+        .toggle-container input[type="radio"]:checked + .toggle-switch {
+            background-color: #4CAF50;
+        }
+        .toggle-container input[type="radio"]:checked + .toggle-switch::before {
+            transform: translateX(70px);
+        }
+        .section {
+            padding: 20px;
+        }
+        .home, .about-us {
+            background-color: #f9f9f9;
+        }
+        .home h2, .about-us h2 {
+            text-align: center;
+        }
+        .demo {
+            background-color: #fff;
+        }
+        .demo .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+        .demo .grid .product {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            width: 150px;
+        }
+        .demo .grid .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .demo .grid .product .price {
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        .about-us .photo {
+            width: 45%;
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 2.5%;
+        }
+        .about-us .photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .about-us .photo p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#demo">Demo</a>
+            <a href="#about-us">About Us</a>
+        </nav>
+    </header>
+
+    <div class="toggle-container">
+        <label for="toggle-left">I am</label>
+        <input type="radio" id="toggle-left" name="toggle" checked>
+        <label for="toggle-left">Hritik Roshan</label>
+        <input type="radio" id="toggle-right" name="toggle">
+        <label for="toggle-right">Katrina Kaif</label>
+        <div class="toggle-switch"></div>
+    </div>
+
+    <section id="home" class="section home">
+        <h2>Welcome to Virtual Try-On</h2>
+        <p>Experience the future of fashion with our Virtual Try-On technology. Personalize your style with ease and convenience, and see how clothes look on you before you buy. Enjoy a seamless shopping experience with cutting-edge virtual fitting tools that cater to your preferences.</p>
+    </section>
+
+    <section id="demo" class="section demo">
+        <div class="grid" id="product-grid">
+            <!-- Product items will be inserted here -->
+        </div>
+    </section>
+
+    <section id="about-us" class="section about-us">
+        <div class="photo">
+            <img src="photo1.jpg" alt="Photo 1">
+            <p>Description of Photo 1</p>
+        </div>
+        <div class="photo">
+            <img src="photo2.jpg" alt="Photo 2">
+            <p>Description of Photo 2</p>
+        </div>
+    </section>
+
+    <script>
+        const productsHritik = [
+            { img: 'product1-hritik.jpg', link: '#', price: '$10' },
+            { img: 'product2-hritik.jpg', link: '#', price: '$20' },
+            { img: 'product3-hritik.jpg', link: '#', price: '$30' }
+        ];
+        const productsKatrina = [
+            { img: 'product1-katrina.jpg', link: '#', price: '$15' },
+            { img: 'product2-katrina.jpg', link: '#', price: '$25' },
+            { img: 'product3-katrina.jpg', link: '#', price: '$35' }
+        ];
+
+        const productGrid = document.getElementById('product-grid');
+
+        function renderProducts(products) {
+            productGrid.innerHTML = '';
+            products.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product';
+                productDiv.innerHTML = `
+                    <img src="${product.img}" alt="Product Image">
+                    <a href="${product.link}">Product Link</a>
+                    <div class="price">${product.price}</div>
+                `;
+                productGrid.appendChild(productDiv);
+            });
+        }
+
+        document.getElementById('toggle-left').addEventListener('change', () => {
+            renderProducts(productsHritik);
+        });
+
+        document.getElementById('toggle-right').addEventListener('change', () => {
+            renderProducts(productsKatrina);
+        });
+
+        // Initialize with Hritik Roshan's products
+        renderProducts(productsHritik);
+    </script>
+</body>
+</html>

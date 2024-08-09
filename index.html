@@ -11,9 +11,11 @@
             padding: 0;
             box-sizing: border-box;
             scroll-behavior: smooth;
+            background: linear-gradient(135deg, #6a1b9a, #ab47bc);
+            color: #fff;
         }
         header {
-            background-color: #333;
+            background-color: #4a148c;
             color: #fff;
             padding: 15px 0;
             position: fixed;
@@ -23,7 +25,7 @@
             z-index: 1000;
             display: flex;
             justify-content: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         nav a {
             color: #fff;
@@ -31,21 +33,22 @@
             padding: 15px 25px;
             display: inline-block;
             transition: background-color 0.3s, color 0.3s;
+            font-size: 16px;
         }
         nav a:hover {
-            background-color: #575757;
-            color: #ffeb3b;
+            background-color: #7b1fa2;
+            color: #f1f1f1;
         }
         .toggle-container {
             text-align: center;
-            margin: 80px auto 20px auto;
+            margin: 100px auto 20px auto;
             position: relative;
+            color: #fff;
         }
         .toggle-container label {
             font-size: 20px;
-            margin-right: 10px;
+            margin: 0 20px;
             font-weight: bold;
-            color: #333;
         }
         .toggle-container input[type="radio"] {
             display: none;
@@ -54,19 +57,17 @@
             display: inline-block;
             width: 120px;
             height: 40px;
-            background-color: #ccc;
+            background-color: #d1c4e9;
             border-radius: 20px;
             position: relative;
             cursor: pointer;
             transition: background-color 0.3s;
-            margin-left: 10px;
-            margin-right: 10px;
         }
         .toggle-container .toggle-switch::before {
             content: '';
             width: 40px;
             height: 40px;
-            background-color: #fff;
+            background-color: #ffffff;
             border-radius: 50%;
             position: absolute;
             top: 0;
@@ -74,7 +75,7 @@
             transition: transform 0.3s;
         }
         .toggle-container input[type="radio"]:checked + .toggle-switch {
-            background-color: #4CAF50;
+            background-color: #ab47bc;
         }
         .toggle-container input[type="radio"]:checked + .toggle-switch::before {
             transform: translateX(80px);
@@ -90,10 +91,12 @@
             display: block;
         }
         .home {
-            background-color: #f0f0f0;
+            background-color: #e1bee7;
+            color: #333;
         }
         .demo {
             background-color: #ffffff;
+            color: #333;
         }
         .demo .grid {
             display: flex;
@@ -108,12 +111,13 @@
             padding: 10px;
             text-align: center;
             width: 200px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #f3e5f5;
         }
         .demo .grid .product:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
         .demo .grid .product img {
             width: 100%;
@@ -123,11 +127,11 @@
         .demo .grid .product .price {
             margin-top: 10px;
             font-weight: bold;
-            color: #333;
         }
         .about-us {
-            background-color: #f9f9f9;
+            background-color: #f3e5f5;
             padding: 40px 20px;
+            color: #333;
         }
         .about-us .photo {
             width: 45%;

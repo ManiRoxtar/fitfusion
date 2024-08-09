@@ -162,13 +162,13 @@
         </nav>
     </header>
 
-    <div class="toggle-container" id="toggle-container">
-        <label for="toggle-left">I am</label>
-        <input type="radio" id="toggle-left" name="toggle" checked>
-        <input type="radio" id="toggle-right" name="toggle">
+    <div class="toggle-container" id="toggle-container-demo">
+        <label for="toggle-left-demo">I am</label>
+        <input type="radio" id="toggle-left-demo" name="toggle-demo" checked>
+        <input type="radio" id="toggle-right-demo" name="toggle-demo">
         <div class="toggle-switch"></div>
-        <label for="toggle-left">Hritik Roshan</label>
-        <label for="toggle-right">Katrina Kaif</label>
+        <label for="toggle-left-demo">Hritik Roshan</label>
+        <label for="toggle-right-demo">Katrina Kaif</label>
     </div>
 
     <section id="home" class="section home">
@@ -177,13 +177,13 @@
     </section>
 
     <section id="demo" class="section demo">
-        <div class="toggle-container" id="toggle-container">
-            <label for="toggle-left">I am</label>
-            <input type="radio" id="toggle-left" name="toggle" checked>
-            <input type="radio" id="toggle-right" name="toggle">
+        <div class="toggle-container" id="toggle-container-demo">
+            <label for="toggle-left-demo">I am</label>
+            <input type="radio" id="toggle-left-demo" name="toggle-demo" checked>
+            <input type="radio" id="toggle-right-demo" name="toggle-demo">
             <div class="toggle-switch"></div>
-            <label for="toggle-left">Hritik Roshan</label>
-            <label for="toggle-right">Katrina Kaif</label>
+            <label for="toggle-left-demo">Hritik Roshan</label>
+            <label for="toggle-right-demo">Katrina Kaif</label>
         </div>
         <div class="grid" id="product-grid">
             <!-- Product items will be inserted here -->
@@ -217,9 +217,9 @@
         const homeSection = document.getElementById('home');
         const demoSection = document.getElementById('demo');
         const aboutUsSection = document.getElementById('about-us');
-        const toggleLeft = document.getElementById('toggle-left');
-        const toggleRight = document.getElementById('toggle-right');
-        const toggleContainer = document.getElementById('toggle-container');
+        const toggleLeftDemo = document.getElementById('toggle-left-demo');
+        const toggleRightDemo = document.getElementById('toggle-right-demo');
+        const toggleContainerDemo = document.getElementById('toggle-container-demo');
 
         function renderProducts(products) {
             productGrid.innerHTML = '';
@@ -245,31 +245,31 @@
         document.getElementById('nav-home').addEventListener('click', (e) => {
             e.preventDefault();
             showSection(homeSection);
-            toggleContainer.style.display = 'none';
+            toggleContainerDemo.style.display = 'none';
             renderProducts([]);
         });
 
         document.getElementById('nav-demo').addEventListener('click', (e) => {
             e.preventDefault();
             showSection(demoSection);
-            toggleContainer.style.display = 'block';
-            renderProducts(toggleLeft.checked ? productsHritik : productsKatrina);
+            toggleContainerDemo.style.display = 'block';
+            renderProducts(toggleLeftDemo.checked ? productsHritik : productsKatrina);
         });
 
         document.getElementById('nav-about-us').addEventListener('click', (e) => {
             e.preventDefault();
             showSection(aboutUsSection);
-            toggleContainer.style.display = 'none';
+            toggleContainerDemo.style.display = 'none';
             renderProducts([]);
         });
 
-        toggleLeft.addEventListener('change', () => {
+        toggleLeftDemo.addEventListener('change', () => {
             if (demoSection.classList.contains('active')) {
                 renderProducts(productsHritik);
             }
         });
 
-        toggleRight.addEventListener('change', () => {
+        toggleRightDemo.addEventListener('change', () => {
             if (demoSection.classList.contains('active')) {
                 renderProducts(productsKatrina);
             }

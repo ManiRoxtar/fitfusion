@@ -26,15 +26,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const cardContainer = document.getElementById('card-container');
 
     const zaynCards = [
-        { img: 'images/zayn1.jpg', link: 'Product Link 1', brand: 'Brand A' },
-        { img: 'images/zayn2.jpg', link: 'Product Link 2', brand: 'Brand B' },
-        { img: 'images/zayn3.jpg', link: 'Product Link 3', brand: 'Brand C' }
+        { img: 'WhatsApp Image 2024-08-09 at 4.33.16 PM.jpeg', link: 'Product Link', brand: 'Bewakoof' },
+        { img: 'WhatsApp Image 2024-08-09 at 4.32.54 PM.jpeg', link: 'Product Link', brand: 'Bewakoof' },
+        { img: 'WhatsApp Image 2024-08-09 at 4.33.29 PM.jpeg', link: 'Product Link', brand: 'Bewakoof' },
+        { img: 'WhatsApp Image 2024-08-09 at 4.34.17 PM.jpeg', link: 'Product Link', brand: 'Bewakoof' }
     ];
 
     const ananyaCards = [
-        { img: 'images/ananya1.jpg', link: 'Product Link 1', brand: 'Brand D' },
-        { img: 'images/ananya2.jpg', link: 'Product Link 2', brand: 'Brand E' },
-        { img: 'images/ananya3.jpg', link: 'Product Link 3', brand: 'Brand F' }
+        { img: 'WhatsApp Image 2024-08-09 at 4.17.25 PM.jpeg', link: 'Product Link 1', brand: 'Bewakoof' },
+        { img: 'WhatsApp Image 2024-08-09 at 4.15.15 PM.jpeg', link: 'Product Link 2', brand: 'Bewakoof' },
+        { img: 'WhatsApp Image 2024-08-09 at 4.13.02 PM.jpeg', link: 'Product Link 3', brand: 'Bewakoof' },
+        { img: 'WhatsApp Image 2024-08-09 at 4.05.02 PM.jpeg', link: 'Product Link 3', brand: 'Bewakoof' }
     ];
 
     function generateCards(cards) {
@@ -67,11 +69,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const fittingImage = document.getElementById('fitting-image');
 
     const sizeImages = {
-        S: 'images/size-s.jpg',
-        M: 'images/size-m.jpg',
-        L: 'images/size-l.jpg',
-        XL: 'images/size-xl.jpg',
-        XXL: 'images/size-xxl.jpg'
+        S: 'bewbrown1.png',
+        M: 'bewbrown.png',
+        L: 'bewbrown2.png',
+        XL: 'bewbrown4.png',
+        XXL: 'bewbrown5.png',
+        XXXL: 'bewbrown6.png'
     };
 
     sizeButtons.forEach(button => {

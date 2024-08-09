@@ -6,48 +6,64 @@
     <title>Virtual Try-On</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
         header {
             background-color: #333;
             color: #fff;
-            padding: 10px 0;
-            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         nav a {
             color: #fff;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 15px 25px;
             display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav a:hover {
+            background-color: #575757;
+            color: #ffeb3b;
         }
         .toggle-container {
             text-align: center;
-            margin: 20px 0;
+            margin: 80px auto 20px auto;
+            position: relative;
         }
         .toggle-container label {
-            font-size: 18px;
+            font-size: 20px;
             margin-right: 10px;
+            font-weight: bold;
+            color: #333;
         }
         .toggle-container input[type="radio"] {
             display: none;
         }
         .toggle-container .toggle-switch {
             display: inline-block;
-            width: 100px;
-            height: 30px;
+            width: 120px;
+            height: 40px;
             background-color: #ccc;
-            border-radius: 15px;
+            border-radius: 20px;
             position: relative;
             cursor: pointer;
             transition: background-color 0.3s;
         }
         .toggle-container .toggle-switch::before {
             content: '';
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             background-color: #fff;
             border-radius: 50%;
             position: absolute;
@@ -59,34 +75,37 @@
             background-color: #4CAF50;
         }
         .toggle-container input[type="radio"]:checked + .toggle-switch::before {
-            transform: translateX(70px);
+            transform: translateX(80px);
         }
         .section {
-            padding: 20px;
-        }
-        .home, .about-us {
-            background-color: #f9f9f9;
-        }
-        .home h2, .about-us h2 {
+            padding: 80px 20px 40px;
             text-align: center;
         }
+        .home {
+            background-color: #f0f0f0;
+        }
         .demo {
-            background-color: #fff;
+            background-color: #ffffff;
         }
         .demo .grid {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            justify-content: center;
             padding: 20px;
-            overflow-y: auto;
-            max-height: 500px;
         }
         .demo .grid .product {
             border: 1px solid #ddd;
             border-radius: 10px;
             padding: 10px;
             text-align: center;
-            width: 150px;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .demo .grid .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .demo .grid .product img {
             width: 100%;
@@ -94,22 +113,30 @@
             border-radius: 5px;
         }
         .demo .grid .product .price {
-            margin-top: 5px;
+            margin-top: 10px;
             font-weight: bold;
+            color: #333;
+        }
+        .about-us {
+            background-color: #f9f9f9;
+            padding: 40px 20px;
         }
         .about-us .photo {
             width: 45%;
             display: inline-block;
             vertical-align: top;
             margin: 0 2.5%;
+            text-align: center;
         }
         .about-us .photo img {
             width: 100%;
             height: auto;
-            border-radius: 5px;
+            border-radius: 10px;
         }
         .about-us .photo p {
-            text-align: center;
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -125,10 +152,10 @@
     <div class="toggle-container">
         <label for="toggle-left">I am</label>
         <input type="radio" id="toggle-left" name="toggle" checked>
-        <label for="toggle-left">Hritik Roshan</label>
         <input type="radio" id="toggle-right" name="toggle">
-        <label for="toggle-right">Katrina Kaif</label>
         <div class="toggle-switch"></div>
+        <label for="toggle-left">Hritik Roshan</label>
+        <label for="toggle-right">Katrina Kaif</label>
     </div>
 
     <section id="home" class="section home">
@@ -144,12 +171,12 @@
 
     <section id="about-us" class="section about-us">
         <div class="photo">
-            <img src="photo1.jpg" alt="Photo 1">
-            <p>Description of Photo 1</p>
+            <img src="photo1.jpg" alt="Company Team">
+            <p>Our dedicated team working on innovative solutions to enhance your shopping experience.</p>
         </div>
         <div class="photo">
-            <img src="photo2.jpg" alt="Photo 2">
-            <p>Description of Photo 2</p>
+            <img src="photo2.jpg" alt="Our Technology">
+            <p>State-of-the-art technology driving the future of virtual try-ons and personalization.</p>
         </div>
     </section>
 

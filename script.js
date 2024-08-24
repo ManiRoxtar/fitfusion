@@ -26,17 +26,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const cardContainer = document.getElementById('card-container');
 
     const zaynCards = [
-        { img: 'WhatsApp Image 2024-08-09 at 4.33.16 PM.jpeg', link: 'Product Link', brand: 'Bewakoof' },
-        { img: 'WhatsApp Image 2024-08-09 at 4.32.54 PM.jpeg', link: 'Product Link', brand: 'Bewakoof' },
-        { img: 'WhatsApp Image 2024-08-09 at 4.33.29 PM.jpeg', link: 'Product Link', brand: 'Bewakoof' },
-        { img: 'WhatsApp Image 2024-08-09 at 4.34.17 PM.jpeg', link: 'Product Link', brand: 'Bewakoof' }
+        { img: 'images/zayn1.jpg', link: 'Product Link 1', brand: 'Brand A' },
+        { img: 'images/zayn2.jpg', link: 'Product Link 2', brand: 'Brand B' },
+        { img: 'images/zayn3.jpg', link: 'Product Link 3', brand: 'Brand C' }
     ];
 
     const ananyaCards = [
-        { img: 'WhatsApp Image 2024-08-09 at 4.17.25 PM.jpeg', link: 'Product Link 1', brand: 'Bewakoof' },
-        { img: 'WhatsApp Image 2024-08-09 at 4.15.15 PM.jpeg', link: 'Product Link 2', brand: 'Bewakoof' },
-        { img: 'WhatsApp Image 2024-08-09 at 4.13.02 PM.jpeg', link: 'Product Link 3', brand: 'Bewakoof' },
-        { img: 'WhatsApp Image 2024-08-09 at 4.05.02 PM.jpeg', link: 'Product Link 3', brand: 'Bewakoof' }
+        { img: 'images/ananya1.jpg', link: 'Product Link 1', brand: 'Brand D' },
+        { img: 'images/ananya2.jpg', link: 'Product Link 2', brand: 'Brand E' },
+        { img: 'images/ananya3.jpg', link: 'Product Link 3', brand: 'Brand F' }
     ];
 
     function generateCards(cards) {
@@ -69,12 +67,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const fittingImage = document.getElementById('fitting-image');
 
     const sizeImages = {
-        S: 'bewbrown1.png',
-        M: 'bewbrown.png',
-        L: 'bewbrown2.png',
-        XL: 'bewbrown4.png',
-        XXL: 'bewbrown5.png',
-        XXXL: 'bewbrown6.png'
+        S: 'images/size-s.jpg',
+        M: 'images/size-m.jpg',
+        L: 'images/size-l.jpg',
+        XL: 'images/size-xl.jpg',
+        XXL: 'images/size-xxl.jpg'
     };
 
     sizeButtons.forEach(button => {
@@ -83,4 +80,27 @@ document.addEventListener('DOMContentLoaded', function() {
             fittingImage.src = sizeImages[size];
         });
     });
+
+    // Background Section Image Slideshow
+    const backgroundImages = [
+        'images/background1.jpg',
+        'images/background2.jpg',
+        'images/background3.jpg',
+        'images/background4.jpg'
+    ];
+
+    let currentIndex = 0;
+    const backgroundImageElement = document.getElementById('background-image');
+
+    function switchBackgroundImage() {
+        currentIndex = (currentIndex + 1) % backgroundImages.length;
+        backgroundImageElement.src = backgroundImages[currentIndex];
+        backgroundImageElement.classList.add('active');
+
+        setTimeout(() => {
+            backgroundImageElement.classList.remove('active');
+        }, 1000); // Reset opacity after transition
+    }
+
+    setInterval(switchBackgroundImage, 3000);
 });

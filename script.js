@@ -92,18 +92,23 @@ document.addEventListener('DOMContentLoaded', function() {
         'bg5.png'
     ];
 
+    const backgroundImages = document.querySelectorAll('.background-image');
     let currentIndex = 0;
-    const backgroundImageElement = document.getElementById('background-image');
 
     function switchBackgroundImage() {
-        currentIndex = (currentIndex + 1) % backgroundImages.length;
-        backgroundImageElement.src = backgroundImages[currentIndex];
-        backgroundImageElement.classList.add('active');
+        backgroundImages.forEach((img, index) => {
+            img.classList.remove('active');
+            if (index === currentIndex) {
+                img.classList.add('active');
+            }
+        });
 
-        setTimeout(() => {
-            backgroundImageElement.classList.remove('active');
-        }, 1000); // Reset opacity after transition
+        currentIndex = (currentIndex + 1) % backgroundImages.length;
     }
 
+    // Start the slideshow immediately after the DOM content is loaded
     setInterval(switchBackgroundImage, 3000);
+
+    // Initial image should be visible
+    backgroundImages[currentIndex].classList.add('active');
 });

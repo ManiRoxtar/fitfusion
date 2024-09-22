@@ -69,11 +69,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const fittingImage = document.getElementById('fitting-image');
 
     const sizeImages = {
-        S: 'bewbrown3.png',
-        M: 'bewbrown1.png',
+        S: 'bewbrown1.png',
+        M: 'bewbrown.png',
         L: 'bewbrown2.png',
-        XL: 'bewbrown5.png',
-        XXL: 'bewbrown5.png'
+        XL: 'bewbrown4.png',
+        XXL: 'bewbrown5.png',
+        XXXL: 'bewbrown6.png'
     };
 
     sizeButtons.forEach(button => {
@@ -82,38 +83,4 @@ document.addEventListener('DOMContentLoaded', function() {
             fittingImage.src = sizeImages[size];
         });
     });
-
-    // Background Section Image Slideshow
-    const backgroundImages = [
-        'bg1.png',
-        'bg2.png',
-        'bg3.jpg',
-        'bg4.jpg',
-        'bg5.png'
-    ];
-    
-    
-
-    let currentIndex = 0;
-    const backgroundImages = document.getElementById('background-image');
-
-
-    function switchBackgroundImage() {
-        backgroundImages.forEach((img, index) => {
-            img.classList.remove('active');
-            if (index === currentIndex) {
-                img.classList.add('active');
-            }
-        });
-
-        currentIndex = (currentIndex + 1) % backgroundImages.length;
-    }
-
-    // Start the slideshow immediately after the DOM content is loaded
-    setInterval(switchBackgroundImage, 3000);
-
-    // Initial image should be visible
-    backgroundImages[currentIndex].classList.add('active');
-    
-   
 });
